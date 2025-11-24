@@ -22,8 +22,8 @@ export function LLMPlayground() {
     setResponse('')
 
     try {
-      const llmPrompt = spark.llmPrompt`${prompt}`
-      const result = await spark.llm(llmPrompt, 'gpt-4o-mini')
+      const llmPrompt = window.spark.llmPrompt([prompt], prompt)
+      const result = await window.spark.llm(llmPrompt, 'gpt-4o-mini')
       setResponse(result)
       toast.success('Response generated!')
     } catch (error) {
@@ -135,7 +135,7 @@ export function LLMPlayground() {
           <div className="text-sm">
             <p className="font-medium mb-1">How it works</p>
             <p className="text-muted-foreground">
-              This demo uses <code className="text-xs bg-background px-1.5 py-0.5 rounded">spark.llm()</code> to call AI models directly. 
+              This demo uses <code className="text-xs bg-background px-1.5 py-0.5 rounded">window.spark.llm()</code> to call AI models directly. 
               No API keys needed — it's built right into the Spark runtime.
             </p>
           </div>

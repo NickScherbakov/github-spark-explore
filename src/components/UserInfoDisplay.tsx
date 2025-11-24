@@ -20,7 +20,7 @@ export function UserInfoDisplay() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const userData = await spark.user()
+        const userData = await window.spark.user()
         setUser(userData)
       } catch (error) {
         console.error('Failed to fetch user:', error)
@@ -113,7 +113,7 @@ export function UserInfoDisplay() {
             <div className="text-sm">
               <p className="font-medium mb-1">How it works</p>
               <p className="text-muted-foreground">
-                This demo uses <code className="text-xs bg-background px-1.5 py-0.5 rounded">spark.user()</code> to fetch authenticated user data. 
+                This demo uses <code className="text-xs bg-background px-1.5 py-0.5 rounded">window.spark.user()</code> to fetch authenticated user data. 
                 Build user-specific features or restrict access based on ownership status.
               </p>
             </div>

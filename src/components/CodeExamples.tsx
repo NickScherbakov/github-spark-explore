@@ -15,8 +15,9 @@ function AIComponent() {
   const [result, setResult] = useState('')
 
   const callAI = async () => {
-    const prompt = spark.llmPrompt\`Explain React hooks\`
-    const response = await spark.llm(prompt, 'gpt-4o-mini')
+    const promptText = 'Explain React hooks'
+    const prompt = window.spark.llmPrompt([promptText], promptText)
+    const response = await window.spark.llm(prompt, 'gpt-4o-mini')
     setResult(response)
   }
 
@@ -70,15 +71,15 @@ function TodoList() {
   kvDirect: {
     title: 'KV Storage (Direct API)',
     code: `async function saveUserPreference() {
-  await spark.kv.set('theme', 'dark')
+  await window.spark.kv.set('theme', 'dark')
   
-  const theme = await spark.kv.get('theme')
+  const theme = await window.spark.kv.get('theme')
   console.log(theme)
   
-  const allKeys = await spark.kv.keys()
+  const allKeys = await window.spark.kv.keys()
   console.log(allKeys)
   
-  await spark.kv.delete('theme')
+  await window.spark.kv.delete('theme')
 }`
   },
   user: {
@@ -90,7 +91,7 @@ function UserProfile() {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const userData = await spark.user()
+      const userData = await window.spark.user()
       setUser(userData)
     }
     fetchUser()
@@ -111,14 +112,19 @@ function UserProfile() {
   jsonMode: {
     title: 'LLM JSON Mode',
     code: `async function generateStructuredData() {
-  const prompt = spark.llmPrompt\`
+  const promptText = \`
     Generate 5 sample products. 
     Return as JSON with a "products" property 
     containing an array of objects with: 
     id, name, price, category
   \`
   
-  const response = await spark.llm(
+  const prompt = window.spark.llmPrompt(
+    [promptText], 
+    promptText
+  )
+  
+  const response = await window.spark.llm(
     prompt, 
     'gpt-4o-mini', 
     true
