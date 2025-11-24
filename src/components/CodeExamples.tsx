@@ -158,14 +158,14 @@ export function CodeExamples() {
       </div>
 
       <div className="space-y-6">
-        <div className="p-6 border border-border bg-card">
+        <div className="p-6 border border-border bg-card rounded-lg shadow-sm">
           <Tabs defaultValue="llm" className="w-full">
-            <TabsList className="flex flex-wrap w-full mb-6 h-auto gap-2 bg-transparent p-0 border-b border-border rounded-none">
-              <TabsTrigger value="llm" className="font-bold rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2">LLM</TabsTrigger>
-              <TabsTrigger value="kvHook" className="font-bold rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2">KV Hook</TabsTrigger>
-              <TabsTrigger value="kvDirect" className="font-bold rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2">KV Direct</TabsTrigger>
-              <TabsTrigger value="user" className="font-bold rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2">User</TabsTrigger>
-              <TabsTrigger value="jsonMode" className="font-bold rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2">JSON Mode</TabsTrigger>
+            <TabsList className="flex flex-wrap w-full mb-6 h-auto gap-2 bg-muted/50 p-1 rounded-lg">
+              <TabsTrigger value="llm" className="font-bold rounded-md data-[state=active]:bg-card data-[state=active]:text-primary data-[state=active]:shadow-sm px-4 py-2">LLM</TabsTrigger>
+              <TabsTrigger value="kvHook" className="font-bold rounded-md data-[state=active]:bg-card data-[state=active]:text-primary data-[state=active]:shadow-sm px-4 py-2">KV Hook</TabsTrigger>
+              <TabsTrigger value="kvDirect" className="font-bold rounded-md data-[state=active]:bg-card data-[state=active]:text-primary data-[state=active]:shadow-sm px-4 py-2">KV Direct</TabsTrigger>
+              <TabsTrigger value="user" className="font-bold rounded-md data-[state=active]:bg-card data-[state=active]:text-primary data-[state=active]:shadow-sm px-4 py-2">User</TabsTrigger>
+              <TabsTrigger value="jsonMode" className="font-bold rounded-md data-[state=active]:bg-card data-[state=active]:text-primary data-[state=active]:shadow-sm px-4 py-2">JSON Mode</TabsTrigger>
             </TabsList>
 
             {Object.entries(codeExamples).map(([key, example]) => (
@@ -176,7 +176,7 @@ export function CodeExamples() {
                     variant="outline"
                     size="sm"
                     onClick={() => copyCode(example.code, key)}
-                    className="font-bold border-border rounded-none"
+                    className="font-bold border-border"
                   >
                     {copiedTab === key ? (
                       <>
@@ -192,7 +192,7 @@ export function CodeExamples() {
                   </Button>
                 </div>
 
-                <div className="h-[440px] border border-border bg-muted overflow-auto">
+                <div className="h-[440px] border border-border bg-secondary/5 rounded-lg overflow-auto">
                   <pre className="p-4 text-sm leading-relaxed">
                     <code className="text-foreground font-mono">
                       {example.code}
@@ -204,10 +204,13 @@ export function CodeExamples() {
           </Tabs>
         </div>
 
-        <div className="p-4 border border-primary/20 bg-primary/5">
+        <div className="p-4 border border-accent/20 bg-accent/5 rounded-lg">
           <div className="flex gap-4">
             <div className="text-sm space-y-1">
-              <p className="font-bold">Ready to use</p>
+              <p className="font-bold flex items-center gap-2">
+                <Info size={16} weight="fill" className="text-accent" />
+                Ready to use
+              </p>
               <p className="text-muted-foreground">
                 All examples are production-ready and follow TypeScript best practices. 
                 Copy any snippet and use it directly in your Spark application.

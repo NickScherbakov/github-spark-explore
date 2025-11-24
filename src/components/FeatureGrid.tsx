@@ -57,16 +57,16 @@ export function FeatureGrid({ onFeatureClick }: FeatureGridProps) {
         </p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {features.map((feature) => (
           <a
             key={feature.id}
             href={feature.href}
             onClick={() => onFeatureClick(feature.id)}
-            className="group block border border-border p-6 hover:border-primary transition-colors"
+            className="group block bg-card border border-border rounded-lg p-6 hover:border-primary hover:shadow-lg transition-all duration-300"
           >
             <div className="flex flex-col h-full gap-4">
-              <div className="text-primary">
+              <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 text-primary rounded-lg group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                 {feature.icon}
               </div>
               
@@ -82,7 +82,7 @@ export function FeatureGrid({ onFeatureClick }: FeatureGridProps) {
               
               <div className="flex items-center text-sm font-semibold text-primary">
                 Learn more
-                <ArrowRight size={16} weight="bold" className="ml-1" />
+                <ArrowRight size={16} weight="bold" className="ml-1 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
           </a>

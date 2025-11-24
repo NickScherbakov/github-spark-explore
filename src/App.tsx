@@ -41,12 +41,12 @@ function App() {
         </section>
       </main>
       
-      <footer className="border-t border-border mt-20 bg-muted">
+      <footer className="border-t border-border mt-20 bg-muted/30">
         <div className="max-w-3xl mx-auto px-6 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
-              <Sparkle size={16} weight="fill" />
-              <span>Built with <strong>GitHub Spark</strong></span>
+              <Sparkle size={16} weight="fill" className="text-primary" />
+              <span>Built with <strong className="text-foreground">GitHub Spark</strong></span>
             </div>
             <p>
               Explore the possibilities of building without boundaries

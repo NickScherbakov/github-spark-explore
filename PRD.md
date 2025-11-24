@@ -58,11 +58,12 @@ An interactive showcase that demonstrates the unique capabilities of GitHub Spar
 The design should feel cutting-edge and sophisticated with a clean, minimal interface that emphasizes content and functionality, using refined color harmony, generous spacing, and purposeful animations to create an elevated, professional experience that inspires confidence.
 
 ## Color Selection
-Custom palette - A refined, contemporary theme with sophisticated purple and blue tones that convey innovation and professionalism, built on a foundation of soft neutrals for optimal readability and visual harmony.
+Custom palette - A refined, contemporary theme with sophisticated purple and blue tones that convey innovation and professionalism, built on a foundation of soft neutrals for optimal readability and visual harmony. Uses modern OKLCH color space for consistent perceptual brightness and improved color accuracy.
 
 - **Primary Color**: Royal Purple (oklch(0.52 0.18 275)) - Conveys innovation and technical sophistication; used for primary actions and key interactive elements
 - **Secondary Colors**: Deep Charcoal (oklch(0.35 0.02 270)) - Professional foundation for code blocks and secondary UI elements with high contrast
 - **Accent Color**: Vibrant Blue (oklch(0.62 0.20 245)) - Energetic highlight for CTAs, focus states, and success indicators
+- **Border Radius**: Consistent 0.5rem (8px) radius throughout for modern, refined appearance with smooth scaling (0.25rem to 1.5rem)
 - **Foreground/Background Pairings**:
   - Background (Soft White oklch(0.985 0.003 270)): Dark text (oklch(0.18 0.02 275)) - Ratio 14.8:1 ✓
   - Card (Pure White oklch(1 0 0)): Dark text (oklch(0.18 0.02 275)) - Ratio 15.2:1 ✓
@@ -70,6 +71,7 @@ Custom palette - A refined, contemporary theme with sophisticated purple and blu
   - Secondary (Deep Charcoal oklch(0.35 0.02 270)): White text (oklch(1 0 0)) - Ratio 10.5:1 ✓
   - Accent (Vibrant Blue oklch(0.62 0.20 245)): White text (oklch(0.99 0 0)) - Ratio 4.8:1 ✓
   - Muted (Light Gray oklch(0.96 0.005 270)): Muted text (oklch(0.48 0.02 275)) - Ratio 7.2:1 ✓
+  - Destructive (Warm Red oklch(0.55 0.22 27)): White text (oklch(0.99 0 0)) - Ratio 5.2:1 ✓
 
 ## Font Selection
 The typography should feel modern and refined with Inter's clean geometric forms providing excellent readability across all screen sizes, with carefully calibrated weight and spacing relationships that create clear visual hierarchy.

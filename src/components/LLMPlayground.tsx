@@ -53,7 +53,7 @@ export function LLMPlayground() {
       </div>
 
       <div className="grid md:grid-cols-2 gap-6 mb-6">
-        <div className="p-6 border border-border bg-card">
+        <div className="p-6 border border-border bg-card rounded-lg shadow-sm">
           <div className="space-y-6">
             <div>
               <label htmlFor="prompt-input" className="text-sm font-bold mb-2 block">
@@ -68,14 +68,14 @@ export function LLMPlayground() {
                 className="min-h-[240px] resize-none text-base border-border bg-background font-mono"
               />
               <p className="text-xs text-muted-foreground mt-2">
-                Press <kbd className="font-bold">Cmd+Enter</kbd> to generate
+                Press <kbd className="px-1.5 py-0.5 rounded bg-muted border border-border font-mono text-xs">Cmd+Enter</kbd> to generate
               </p>
             </div>
 
             <Button
               onClick={handleGenerate}
               disabled={isLoading || !prompt.trim()}
-              className="w-full h-10 text-base font-bold rounded-none"
+              className="w-full h-10 text-base font-bold"
               size="lg"
             >
               {isLoading ? 'Generating...' : 'Generate Response'}
@@ -83,20 +83,20 @@ export function LLMPlayground() {
           </div>
         </div>
 
-        <div className="p-6 border border-border bg-card">
+        <div className="p-6 border border-border bg-card rounded-lg shadow-sm">
           <div className="space-y-6 h-full flex flex-col">
             <div className="flex items-center justify-between">
               <label className="text-sm font-bold">
                 AI Response
               </label>
               {response && (
-                <span className="text-xs border border-border px-2 py-1 bg-muted">
+                <span className="text-xs border border-primary/30 px-2 py-1 bg-primary/10 text-primary rounded">
                   GPT-4o Mini
                 </span>
               )}
             </div>
 
-            <div className="flex-1 border border-border bg-muted p-4 overflow-auto min-h-[240px]">
+            <div className="flex-1 border border-border bg-muted/50 p-4 rounded-lg overflow-auto min-h-[240px]">
               {isLoading ? (
                 <div className="text-sm text-muted-foreground">Thinking...</div>
               ) : response ? (
@@ -113,12 +113,15 @@ export function LLMPlayground() {
         </div>
       </div>
 
-      <div className="p-4 border border-primary/20 bg-primary/5">
+      <div className="p-4 border border-primary/20 bg-primary/5 rounded-lg">
         <div className="flex gap-4">
           <div className="text-sm space-y-1">
-            <p className="font-bold">How it works</p>
+            <p className="font-bold flex items-center gap-2">
+              <Info size={16} weight="fill" className="text-primary" />
+              How it works
+            </p>
             <p className="text-muted-foreground">
-              This demo uses <code className="text-xs bg-background px-1 border border-border font-mono">window.spark.llm()</code> to call AI models directly. 
+              This demo uses <code className="text-xs bg-background px-1.5 py-0.5 rounded border border-border font-mono">window.spark.llm()</code> to call AI models directly. 
               No API keys needed — it's built right into the Spark runtime.
             </p>
           </div>
