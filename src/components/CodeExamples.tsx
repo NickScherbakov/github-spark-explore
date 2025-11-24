@@ -148,12 +148,12 @@ export function CodeExamples() {
 
   return (
     <div className="scroll-mt-20">
-      <div className="text-center mb-12 space-y-4">
+      <div className="text-center mb-16 space-y-4">
         <div className="inline-flex items-center gap-3">
-          <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20">
-            <Code size={24} weight="duotone" className="text-primary" />
+          <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 shadow-lg shadow-primary/5">
+            <Code size={28} weight="duotone" className="text-primary" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
             Code Examples
           </h2>
         </div>
@@ -163,25 +163,25 @@ export function CodeExamples() {
       </div>
 
       <div className="space-y-6">
-        <Card className="p-8 border-2 border-border/50 shadow-lg">
+        <Card className="p-8 border border-border/60 bg-card/50 backdrop-blur-sm shadow-lg shadow-black/5">
           <Tabs defaultValue="llm" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 lg:grid-cols-5 mb-8 h-auto gap-2 bg-muted/50 p-2">
-              <TabsTrigger value="llm" className="font-semibold">LLM</TabsTrigger>
-              <TabsTrigger value="kvHook" className="font-semibold">KV Hook</TabsTrigger>
-              <TabsTrigger value="kvDirect" className="font-semibold">KV Direct</TabsTrigger>
-              <TabsTrigger value="user" className="font-semibold">User</TabsTrigger>
-              <TabsTrigger value="jsonMode" className="font-semibold">JSON Mode</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-2 lg:grid-cols-5 mb-8 h-auto gap-2 bg-muted/40 p-2">
+              <TabsTrigger value="llm" className="font-semibold data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">LLM</TabsTrigger>
+              <TabsTrigger value="kvHook" className="font-semibold data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">KV Hook</TabsTrigger>
+              <TabsTrigger value="kvDirect" className="font-semibold data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">KV Direct</TabsTrigger>
+              <TabsTrigger value="user" className="font-semibold data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">User</TabsTrigger>
+              <TabsTrigger value="jsonMode" className="font-semibold data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">JSON Mode</TabsTrigger>
             </TabsList>
 
             {Object.entries(codeExamples).map(([key, example]) => (
               <TabsContent key={key} value={key} className="space-y-4">
-                <div className="flex items-center justify-between pb-4 border-b-2 border-border/50">
+                <div className="flex items-center justify-between pb-4 border-b border-border/60">
                   <h3 className="text-xl font-bold">{example.title}</h3>
                   <Button
                     variant="outline"
                     size="sm"
                     onClick={() => copyCode(example.code, key)}
-                    className="font-semibold border-2"
+                    className="font-semibold border-border/60"
                   >
                     {copiedTab === key ? (
                       <>
@@ -197,7 +197,7 @@ export function CodeExamples() {
                   </Button>
                 </div>
 
-                <ScrollArea className="h-[440px] rounded-xl border-2 border-border/50 bg-gradient-to-br from-secondary/40 to-secondary/20">
+                <ScrollArea className="h-[440px] rounded-2xl border border-border/60 bg-secondary/30">
                   <pre className="p-6 text-sm leading-relaxed">
                     <code className="text-secondary-foreground font-mono">
                       {example.code}
@@ -209,10 +209,10 @@ export function CodeExamples() {
           </Tabs>
         </Card>
 
-        <Card className="p-6 bg-gradient-to-br from-accent/5 to-primary/5 border-2 border-accent/20 shadow-lg">
+        <Card className="p-6 bg-gradient-to-br from-primary/[0.03] to-accent/[0.02] border border-primary/20 shadow-md">
           <div className="flex gap-4">
-            <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-accent/10 flex-shrink-0">
-              <Info className="text-accent" size={20} weight="duotone" />
+            <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 flex-shrink-0">
+              <Info className="text-primary" size={20} weight="duotone" />
             </div>
             <div className="text-sm space-y-1.5">
               <p className="font-semibold text-foreground">Ready to use</p>

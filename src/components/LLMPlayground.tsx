@@ -43,12 +43,12 @@ export function LLMPlayground() {
 
   return (
     <div className="scroll-mt-20">
-      <div className="text-center mb-12 space-y-4">
+      <div className="text-center mb-16 space-y-4">
         <div className="inline-flex items-center gap-3">
-          <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20">
-            <Sparkle size={24} weight="duotone" className="text-primary" />
+          <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 shadow-lg shadow-primary/5">
+            <Sparkle size={28} weight="duotone" className="text-primary" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
             LLM Playground
           </h2>
         </div>
@@ -58,7 +58,7 @@ export function LLMPlayground() {
       </div>
 
       <div className="grid md:grid-cols-2 gap-6 mb-6">
-        <Card className="p-8 border-2 border-border/50 shadow-lg">
+        <Card className="p-8 border border-border/60 bg-card/50 backdrop-blur-sm shadow-lg shadow-black/5">
           <div className="space-y-6">
             <div>
               <label htmlFor="prompt-input" className="text-sm font-semibold mb-3 block flex items-center gap-2">
@@ -71,12 +71,12 @@ export function LLMPlayground() {
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
                 onKeyDown={handleKeyDown}
-                className="min-h-[240px] resize-none text-base"
+                className="min-h-[240px] resize-none text-base border-border/60 bg-background/50"
               />
               <p className="text-xs text-muted-foreground mt-3 flex items-center gap-1.5">
-                <kbd className="px-2 py-1 text-xs bg-muted border border-border rounded">⌘</kbd>
+                <kbd className="px-2 py-1 text-xs bg-muted/80 border border-border/60 rounded-md font-medium">⌘</kbd>
                 <span>+</span>
-                <kbd className="px-2 py-1 text-xs bg-muted border border-border rounded">Enter</kbd>
+                <kbd className="px-2 py-1 text-xs bg-muted/80 border border-border/60 rounded-md font-medium">Enter</kbd>
                 <span className="ml-1">to generate</span>
               </p>
             </div>
@@ -84,7 +84,7 @@ export function LLMPlayground() {
             <Button
               onClick={handleGenerate}
               disabled={isLoading || !prompt.trim()}
-              className="w-full h-12 text-base font-semibold shadow-lg shadow-primary/25"
+              className="w-full h-12 text-base font-semibold shadow-lg shadow-primary/20"
               size="lg"
             >
               {isLoading ? (
@@ -102,7 +102,7 @@ export function LLMPlayground() {
           </div>
         </Card>
 
-        <Card className="p-8 border-2 border-border/50 shadow-lg">
+        <Card className="p-8 border border-border/60 bg-card/50 backdrop-blur-sm shadow-lg shadow-black/5">
           <div className="space-y-6">
             <div className="flex items-center justify-between">
               <label className="text-sm font-semibold flex items-center gap-2">
@@ -110,13 +110,13 @@ export function LLMPlayground() {
                 <Badge variant="secondary" className="text-xs font-normal">Output</Badge>
               </label>
               {response && (
-                <Badge variant="outline" className="text-xs border-primary/30 text-primary">
+                <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
                   GPT-4o Mini
                 </Badge>
               )}
             </div>
 
-            <ScrollArea className="h-[280px] rounded-xl border-2 border-border/50 bg-gradient-to-br from-muted/30 to-muted/50 p-6">
+            <ScrollArea className="h-[280px] rounded-2xl border border-border/60 bg-muted/30 p-6">
               {isLoading ? (
                 <div className="flex items-center justify-center h-full">
                   <div className="text-center space-y-3">
@@ -138,15 +138,15 @@ export function LLMPlayground() {
         </Card>
       </div>
 
-      <Card className="p-6 bg-gradient-to-br from-accent/5 to-primary/5 border-2 border-accent/20 shadow-lg">
+      <Card className="p-6 bg-gradient-to-br from-primary/[0.03] to-accent/[0.02] border border-primary/20 shadow-md">
         <div className="flex gap-4">
-          <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-accent/10 flex-shrink-0">
-            <Info className="text-accent" size={20} weight="duotone" />
+          <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 flex-shrink-0">
+            <Info className="text-primary" size={20} weight="duotone" />
           </div>
           <div className="text-sm space-y-1.5">
             <p className="font-semibold text-foreground">How it works</p>
             <p className="text-muted-foreground leading-relaxed">
-              This demo uses <code className="text-xs bg-background/80 px-2 py-1 rounded border border-border font-mono text-primary">window.spark.llm()</code> to call AI models directly. 
+              This demo uses <code className="text-xs bg-background/60 px-2 py-1 rounded-md border border-border/40 font-mono text-primary">window.spark.llm()</code> to call AI models directly. 
               No API keys needed — it's built right into the Spark runtime.
             </p>
           </div>

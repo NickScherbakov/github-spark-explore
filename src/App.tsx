@@ -17,7 +17,7 @@ function App() {
       
       <Hero />
       
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-32 space-y-32 md:space-y-40">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-36 space-y-36 md:space-y-44">
         <FeatureGrid onFeatureClick={setActiveSection} />
         
         <section id="llm">
@@ -37,11 +37,11 @@ function App() {
         </section>
       </main>
       
-      <footer className="border-t border-border/50 bg-gradient-to-b from-background to-muted/20">
+      <footer className="border-t border-border/50 bg-gradient-to-b from-background to-muted/20 mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="text-center space-y-4">
             <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-              <Sparkle size={16} weight="duotone" className="text-primary" />
+              <Sparkle size={18} weight="duotone" className="text-primary" />
               <span>Built with</span>
               <span className="font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 GitHub Spark

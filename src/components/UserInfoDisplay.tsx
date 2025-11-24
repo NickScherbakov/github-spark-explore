@@ -34,12 +34,12 @@ export function UserInfoDisplay() {
 
   return (
     <div className="scroll-mt-20">
-      <div className="text-center mb-12 space-y-4">
+      <div className="text-center mb-16 space-y-4">
         <div className="inline-flex items-center gap-3">
-          <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20">
-            <User size={24} weight="duotone" className="text-primary" />
+          <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 shadow-lg shadow-primary/5">
+            <User size={28} weight="duotone" className="text-primary" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
             User Context
           </h2>
         </div>
@@ -50,7 +50,7 @@ export function UserInfoDisplay() {
 
       <div className="max-w-3xl mx-auto space-y-6">
         {isLoading ? (
-          <Card className="p-10 border-2 border-border/50 shadow-lg">
+          <Card className="p-10 border border-border/60 bg-card/50 backdrop-blur-sm shadow-lg shadow-black/5">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <Skeleton className="w-28 h-28 rounded-full flex-shrink-0" />
               <div className="flex-1 space-y-4 text-center md:text-left w-full">
@@ -61,9 +61,9 @@ export function UserInfoDisplay() {
             </div>
           </Card>
         ) : user ? (
-          <Card className="p-10 border-2 border-border/50 shadow-lg">
+          <Card className="p-10 border border-border/60 bg-card/50 backdrop-blur-sm shadow-lg shadow-black/5">
             <div className="flex flex-col md:flex-row items-center gap-8">
-              <Avatar className="w-28 h-28 border-4 border-border shadow-xl flex-shrink-0">
+              <Avatar className="w-28 h-28 border-4 border-border/60 shadow-xl flex-shrink-0 ring-2 ring-primary/10">
                 <AvatarImage src={user.avatarUrl} alt={user.login} />
                 <AvatarFallback className="text-3xl bg-gradient-to-br from-primary to-accent text-primary-foreground font-bold">
                   {user.login.slice(0, 2).toUpperCase()}
@@ -74,7 +74,7 @@ export function UserInfoDisplay() {
                 <div className="flex flex-col md:flex-row items-center gap-3">
                   <h3 className="text-3xl font-bold">{user.login}</h3>
                   {user.isOwner && (
-                    <Badge className="bg-gradient-to-r from-accent to-primary text-white border-0 shadow-lg shadow-accent/25 px-3 py-1">
+                    <Badge className="bg-gradient-to-r from-primary to-accent text-white border-0 shadow-lg shadow-primary/20 px-3 py-1">
                       <Crown size={16} className="mr-1.5" weight="fill" />
                       Owner
                     </Badge>
@@ -83,13 +83,13 @@ export function UserInfoDisplay() {
 
                 <div className="space-y-3 text-sm">
                   <div className="flex items-center gap-3 justify-center md:justify-start text-muted-foreground">
-                    <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-muted">
+                    <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-muted/60">
                       <Envelope size={16} weight="duotone" />
                     </div>
                     <span className="font-medium">{user.email}</span>
                   </div>
                   <div className="flex items-center gap-3 justify-center md:justify-start text-muted-foreground">
-                    <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-muted">
+                    <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-muted/60">
                       <IdentificationCard size={16} weight="duotone" />
                     </div>
                     <span className="font-medium">User ID: {user.id}</span>
@@ -97,7 +97,7 @@ export function UserInfoDisplay() {
                 </div>
 
                 {user.isOwner && (
-                  <div className="pt-4 border-t-2 border-border/50">
+                  <div className="pt-4 border-t border-border/60">
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       As the owner, you have full access to manage this Spark application.
                     </p>
@@ -107,21 +107,21 @@ export function UserInfoDisplay() {
             </div>
           </Card>
         ) : (
-          <Card className="p-10 text-center border-2 border-border/50 shadow-lg">
-            <User size={56} className="mx-auto text-muted-foreground mb-4" weight="duotone" />
+          <Card className="p-10 text-center border border-border/60 bg-card/50 backdrop-blur-sm shadow-lg shadow-black/5">
+            <User size={56} className="mx-auto text-muted-foreground/50 mb-4" weight="duotone" />
             <p className="text-muted-foreground font-medium">Failed to load user information</p>
           </Card>
         )}
 
-        <Card className="p-6 bg-gradient-to-br from-accent/5 to-primary/5 border-2 border-accent/20 shadow-lg">
+        <Card className="p-6 bg-gradient-to-br from-primary/[0.03] to-accent/[0.02] border border-primary/20 shadow-md">
           <div className="flex gap-4">
-            <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-accent/10 flex-shrink-0">
-              <Info className="text-accent" size={20} weight="duotone" />
+            <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 flex-shrink-0">
+              <Info className="text-primary" size={20} weight="duotone" />
             </div>
             <div className="text-sm space-y-1.5">
               <p className="font-semibold text-foreground">How it works</p>
               <p className="text-muted-foreground leading-relaxed">
-                This demo uses <code className="text-xs bg-background/80 px-2 py-1 rounded border border-border font-mono text-primary">window.spark.user()</code> to fetch authenticated user data. 
+                This demo uses <code className="text-xs bg-background/60 px-2 py-1 rounded-md border border-border/40 font-mono text-primary">window.spark.user()</code> to fetch authenticated user data. 
                 Build user-specific features or restrict access based on ownership status.
               </p>
             </div>
