@@ -16,29 +16,31 @@ function App() {
       
       <Hero />
       
-      <main className="max-w-7xl mx-auto px-6 py-16">
+      <main className="max-w-7xl mx-auto px-6 py-20 md:py-24">
         <FeatureGrid onFeatureClick={setActiveSection} />
         
-        <section id="llm" className="mb-24 scroll-mt-8">
+        <section id="llm" className="mb-32">
           <LLMPlayground />
         </section>
         
-        <section id="kv-storage" className="mb-24 scroll-mt-8">
+        <section id="kv-storage" className="mb-32">
           <KVStorageDemo />
         </section>
         
-        <section id="user" className="mb-24 scroll-mt-8">
+        <section id="user" className="mb-32">
           <UserInfoDisplay />
         </section>
         
-        <section id="examples" className="mb-24 scroll-mt-8">
+        <section id="examples" className="mb-20">
           <CodeExamples />
         </section>
       </main>
       
-      <footer className="border-t border-border py-12">
-        <div className="max-w-7xl mx-auto px-6 text-center text-muted-foreground text-sm">
-          Built with GitHub Spark · Explore the possibilities
+      <footer className="border-t-2 border-border/50 py-12 bg-gradient-to-br from-muted/30 to-background">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <p className="text-muted-foreground text-sm font-medium">
+            Built with <span className="text-primary font-semibold">GitHub Spark</span> · Explore the possibilities
+          </p>
         </div>
       </footer>
     </div>

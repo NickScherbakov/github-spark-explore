@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Code, Copy, Check } from '@phosphor-icons/react'
+import { Code, Copy, Check, Info } from '@phosphor-icons/react'
 import { Card } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Button } from '@/components/ui/button'
@@ -147,76 +147,83 @@ export function CodeExamples() {
   }
 
   return (
-    <div>
-      <div className="text-center mb-8">
-        <div className="inline-flex items-center gap-2 mb-3">
-          <Code size={24} weight="duotone" className="text-primary" />
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
+    <div className="scroll-mt-20">
+      <div className="text-center mb-12 space-y-4">
+        <div className="inline-flex items-center gap-3">
+          <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20">
+            <Code size={24} weight="duotone" className="text-primary" />
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
             Code Examples
           </h2>
         </div>
-        <p className="text-muted-foreground text-lg">
+        <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
           Copy-paste ready snippets to use in your Spark apps
         </p>
       </div>
 
-      <Card className="p-6">
-        <Tabs defaultValue="llm" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 lg:grid-cols-5 mb-6">
-            <TabsTrigger value="llm">LLM</TabsTrigger>
-            <TabsTrigger value="kvHook">KV Hook</TabsTrigger>
-            <TabsTrigger value="kvDirect">KV Direct</TabsTrigger>
-            <TabsTrigger value="user">User</TabsTrigger>
-            <TabsTrigger value="jsonMode">JSON Mode</TabsTrigger>
-          </TabsList>
+      <div className="space-y-6">
+        <Card className="p-8 border-2 border-border/50 shadow-lg">
+          <Tabs defaultValue="llm" className="w-full">
+            <TabsList className="grid w-full grid-cols-2 lg:grid-cols-5 mb-8 h-auto gap-2 bg-muted/50 p-2">
+              <TabsTrigger value="llm" className="font-semibold">LLM</TabsTrigger>
+              <TabsTrigger value="kvHook" className="font-semibold">KV Hook</TabsTrigger>
+              <TabsTrigger value="kvDirect" className="font-semibold">KV Direct</TabsTrigger>
+              <TabsTrigger value="user" className="font-semibold">User</TabsTrigger>
+              <TabsTrigger value="jsonMode" className="font-semibold">JSON Mode</TabsTrigger>
+            </TabsList>
 
-          {Object.entries(codeExamples).map(([key, example]) => (
-            <TabsContent key={key} value={key} className="space-y-4">
-              <div className="flex items-center justify-between">
-                <h3 className="text-lg font-semibold">{example.title}</h3>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => copyCode(example.code, key)}
-                >
-                  {copiedTab === key ? (
-                    <>
-                      <Check className="mr-2" size={16} />
-                      Copied!
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="mr-2" size={16} />
-                      Copy Code
-                    </>
-                  )}
-                </Button>
-              </div>
+            {Object.entries(codeExamples).map(([key, example]) => (
+              <TabsContent key={key} value={key} className="space-y-4">
+                <div className="flex items-center justify-between pb-4 border-b-2 border-border/50">
+                  <h3 className="text-xl font-bold">{example.title}</h3>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => copyCode(example.code, key)}
+                    className="font-semibold border-2"
+                  >
+                    {copiedTab === key ? (
+                      <>
+                        <Check className="mr-2" size={16} weight="bold" />
+                        Copied!
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="mr-2" size={16} weight="duotone" />
+                        Copy Code
+                      </>
+                    )}
+                  </Button>
+                </div>
 
-              <ScrollArea className="h-[400px] rounded-lg border border-border bg-secondary/30">
-                <pre className="p-4 text-sm">
-                  <code className="text-secondary-foreground font-mono">
-                    {example.code}
-                  </code>
-                </pre>
-              </ScrollArea>
-            </TabsContent>
-          ))}
-        </Tabs>
-      </Card>
+                <ScrollArea className="h-[440px] rounded-xl border-2 border-border/50 bg-gradient-to-br from-secondary/40 to-secondary/20">
+                  <pre className="p-6 text-sm leading-relaxed">
+                    <code className="text-secondary-foreground font-mono">
+                      {example.code}
+                    </code>
+                  </pre>
+                </ScrollArea>
+              </TabsContent>
+            ))}
+          </Tabs>
+        </Card>
 
-      <Card className="mt-6 p-4 bg-muted/30 border-accent/20">
-        <div className="flex gap-3">
-          <Code className="text-accent flex-shrink-0 mt-0.5" size={20} weight="duotone" />
-          <div className="text-sm">
-            <p className="font-medium mb-1">Ready to use</p>
-            <p className="text-muted-foreground">
-              All examples are production-ready and follow TypeScript best practices. 
-              Copy any snippet and use it directly in your Spark application.
-            </p>
+        <Card className="p-6 bg-gradient-to-br from-accent/5 to-primary/5 border-2 border-accent/20 shadow-lg">
+          <div className="flex gap-4">
+            <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-accent/10 flex-shrink-0">
+              <Info className="text-accent" size={20} weight="duotone" />
+            </div>
+            <div className="text-sm space-y-1.5">
+              <p className="font-semibold text-foreground">Ready to use</p>
+              <p className="text-muted-foreground leading-relaxed">
+                All examples are production-ready and follow TypeScript best practices. 
+                Copy any snippet and use it directly in your Spark application.
+              </p>
+            </div>
           </div>
-        </div>
-      </Card>
+        </Card>
+      </div>
     </div>
   )
 }
