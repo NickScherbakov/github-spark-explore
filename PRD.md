@@ -55,81 +55,87 @@ An interactive showcase that demonstrates the unique capabilities of GitHub Spar
 - **Mobile Responsiveness**: Stack elements vertically on small screens while maintaining usability
 
 ## Design Direction
-The design should feel cutting-edge and developer-focused with a clean, minimal interface that puts functionality front and center, using generous spacing and subtle animations to create a sense of polish without distraction.
+The design should feel cutting-edge and sophisticated with a clean, minimal interface that emphasizes content and functionality, using refined color harmony, generous spacing, and purposeful animations to create an elevated, professional experience that inspires confidence.
 
 ## Color Selection
-Custom palette - A modern developer-friendly theme with deep purple accents that convey innovation and technical sophistication, paired with cool grays for a professional foundation.
+Custom palette - A refined, contemporary theme with sophisticated purple and blue tones that convey innovation and professionalism, built on a foundation of soft neutrals for optimal readability and visual harmony.
 
-- **Primary Color**: Deep Purple (oklch(0.45 0.15 290)) - Represents innovation, creativity, and technical depth; used for primary actions and brand elements
-- **Secondary Colors**: Cool Gray (oklch(0.35 0.02 260)) - Provides professional contrast for secondary UI elements and code blocks
-- **Accent Color**: Electric Blue (oklch(0.65 0.19 240)) - Bright highlight for interactive elements, CTAs, and success states
+- **Primary Color**: Royal Purple (oklch(0.52 0.18 275)) - Conveys innovation and technical sophistication; used for primary actions and key interactive elements
+- **Secondary Colors**: Deep Charcoal (oklch(0.35 0.02 270)) - Professional foundation for code blocks and secondary UI elements with high contrast
+- **Accent Color**: Vibrant Blue (oklch(0.62 0.20 245)) - Energetic highlight for CTAs, focus states, and success indicators
 - **Foreground/Background Pairings**:
-  - Background (Cool White oklch(0.98 0.005 260)): Dark text (oklch(0.25 0.02 260)) - Ratio 12.1:1 ✓
-  - Card (White oklch(1 0 0)): Dark text (oklch(0.25 0.02 260)) - Ratio 13.5:1 ✓
-  - Primary (Deep Purple oklch(0.45 0.15 290)): White text (oklch(1 0 0)) - Ratio 7.2:1 ✓
-  - Secondary (Cool Gray oklch(0.35 0.02 260)): White text (oklch(1 0 0)) - Ratio 10.8:1 ✓
-  - Accent (Electric Blue oklch(0.65 0.19 240)): White text (oklch(1 0 0)) - Ratio 4.6:1 ✓
-  - Muted (Light Gray oklch(0.96 0.005 260)): Muted text (oklch(0.55 0.02 260)) - Ratio 5.8:1 ✓
+  - Background (Soft White oklch(0.985 0.003 270)): Dark text (oklch(0.18 0.02 275)) - Ratio 14.8:1 ✓
+  - Card (Pure White oklch(1 0 0)): Dark text (oklch(0.18 0.02 275)) - Ratio 15.2:1 ✓
+  - Primary (Royal Purple oklch(0.52 0.18 275)): White text (oklch(0.99 0 0)) - Ratio 8.1:1 ✓
+  - Secondary (Deep Charcoal oklch(0.35 0.02 270)): White text (oklch(1 0 0)) - Ratio 10.5:1 ✓
+  - Accent (Vibrant Blue oklch(0.62 0.20 245)): White text (oklch(0.99 0 0)) - Ratio 4.8:1 ✓
+  - Muted (Light Gray oklch(0.96 0.005 270)): Muted text (oklch(0.48 0.02 275)) - Ratio 7.2:1 ✓
 
 ## Font Selection
-The typography should feel modern and technical yet approachable, using Inter for its excellent readability and developer-friendly aesthetic with geometric precision.
+The typography should feel modern and refined with Inter's clean geometric forms providing excellent readability across all screen sizes, with carefully calibrated weight and spacing relationships that create clear visual hierarchy.
 
 - **Typographic Hierarchy**:
-  - H1 (Page Title): Inter Bold/48px/tight letter-spacing (-0.02em)/leading-none
-  - H2 (Section Headers): Inter SemiBold/32px/tight letter-spacing (-0.01em)/leading-tight
-  - H3 (Card Titles): Inter SemiBold/20px/normal letter-spacing/leading-snug
+  - H1 (Page Title): Inter Bold/56px/tight letter-spacing (-0.02em)/leading-none (scales to 36px mobile)
+  - H2 (Section Headers): Inter Bold/40px/tight letter-spacing (-0.015em)/leading-tight (scales to 32px mobile)
+  - H3 (Card Titles): Inter Bold/20px/normal letter-spacing/leading-snug
   - Body (Descriptions): Inter Regular/16px/normal letter-spacing/leading-relaxed
-  - Code (Snippets): Inter Regular/14px/normal letter-spacing/leading-normal
-  - Caption (Helper Text): Inter Medium/14px/normal letter-spacing/leading-normal
+  - Labels (Form Elements): Inter SemiBold/14px/normal letter-spacing/leading-normal
+  - Code (Snippets): Inter Regular/14px/normal letter-spacing/font-mono styling
+  - Caption (Helper Text): Inter Medium/12px/normal letter-spacing/leading-normal
 
 ## Animations
-Animations should be purposeful and snappy, emphasizing state changes and interactive feedback while maintaining a technical, precise feeling that never delays user actions.
+Animations should be smooth and refined, emphasizing state transitions and providing satisfying feedback while maintaining a professional, polished aesthetic that never sacrifices performance or delays user actions.
 
-- **Purposeful Meaning**: Smooth page transitions communicate navigation flow, card hover effects invite interaction, and loading states use subtle pulse animations that feel engineered rather than playful
-- **Hierarchy of Movement**: Primary CTAs get hover scale and color transitions (200ms), card grid items elevate on hover with shadow changes (250ms), tab switching uses slide transitions (300ms), and success toasts slide in from top (350ms)
+- **Purposeful Meaning**: Elegant transitions communicate hierarchy and relationships, hover effects invite exploration with subtle elevation changes, and loading states use refined animations that feel engineered and intentional
+- **Hierarchy of Movement**: Primary CTAs scale subtly on hover (1.02x scale, 200ms), card grid items elevate with shadow and border transitions (300ms), tab switching uses smooth content fades (250ms), toast notifications slide in gracefully with spring physics (400ms), and gradient backgrounds shift subtly creating depth
 
 ## Component Selection
 - **Components**: 
-  - Card (with hover effects using Tailwind transforms) for feature grid and demo sections
-  - Tabs for code examples and switching between different API demonstrations
-  - Textarea for prompt input with auto-resize capability
-  - Button (primary variant for main actions, outline for secondary)
-  - Badge for status indicators and tags
-  - Separator for visual section breaks
-  - ScrollArea for long code snippets and LLM responses
-  - Skeleton for loading states
-  - Sonner toast for copy confirmations and action feedback
+  - Card (with sophisticated hover effects using gradient overlays and border transitions) for feature grid and demo sections
+  - Tabs (with clean, modern styling) for code examples and API demonstrations
+  - Textarea (with refined focus states) for prompt input with comfortable padding
+  - Button (primary with gradient shadow for main actions, outline for secondary)
+  - Badge (subtle with refined borders) for status indicators and tags
+  - Separator for clean section divisions
+  - ScrollArea for long code snippets and LLM responses with custom scrollbar styling
+  - Skeleton (with subtle shimmer) for loading states
+  - Sonner toast (with refined styling) for action feedback
   
 - **Customizations**: 
-  - Custom syntax-highlighted code blocks using pre/code with appropriate background styling
-  - Animated gradient background for hero section using Tailwind utilities
-  - Custom hover states for feature cards that combine scale, shadow, and border color changes
+  - Enhanced code blocks with refined background gradients and optimal contrast
+  - Sophisticated gradient backgrounds in hero with subtle pattern overlays
+  - Multi-layer hover states combining scale, shadow depth, border color, and subtle gradient overlays
+  - Icon containers with gradient backgrounds and refined border radius
+  - Information cards with accent-colored borders and gradient backgrounds
   
 - **States**: 
-  - Buttons: Default (solid primary), Hover (scale-105 + brightness increase), Active (scale-95), Disabled (opacity-50), Loading (spinner icon)
-  - Inputs: Default (border-input), Focus (ring-2 ring-accent), Error (border-destructive), Success (border-accent subtle pulse)
-  - Cards: Default (border-subtle), Hover (border-accent + shadow-lg + translate-y-[-2px]), Active (border-primary)
+  - Buttons: Default (solid with shadow), Hover (scale-102 + enhanced shadow), Active (scale-98), Disabled (reduced opacity), Loading (animated spinner with blur effect)
+  - Inputs: Default (subtle border), Focus (ring-2 with accent color), Error (destructive border with subtle glow), Filled (enhanced border)
+  - Cards: Default (refined border), Hover (gradient overlay + primary border + elevated shadow + slight lift), Active (primary border)
   
 - **Icon Selection**: 
-  - Sparkles for AI/LLM features
-  - Database for KV storage
-  - User for profile/auth features
-  - Code for code examples
-  - Copy for copy-to-clipboard actions
-  - Play for running demos
-  - Check for success states
+  - Sparkle (duotone) for AI/LLM features
+  - Database (duotone) for KV storage
+  - User (duotone) for profile/auth features
+  - Code (duotone) for code examples
+  - Copy (duotone) for copy-to-clipboard actions
+  - Check (bold) for success states
+  - Info (duotone) for informational elements
+  - ArrowRight (bold) for CTAs and navigation
   
 - **Spacing**: 
-  - Container max-w-7xl with px-6 for main content
-  - Section spacing: mb-24 between major sections
-  - Card padding: p-6 for content cards, p-8 for hero sections
-  - Grid gaps: gap-6 for feature grids, gap-4 for form elements
-  - Consistent use of space-y-4 for vertical stacks, space-x-4 for horizontal groups
+  - Container max-w-7xl with responsive px (px-4 sm:px-6 lg:px-8) for main content
+  - Section spacing: space-y-32 md:space-y-40 between major sections for generous breathing room
+  - Card padding: p-6 for info cards, p-8 for interactive cards, p-10 for feature showcases
+  - Grid gaps: gap-6 for feature grids maintaining consistent rhythm
+  - Consistent use of space-y-4 for vertical content stacks, gap-3/gap-4 for form elements
+  - Icon container sizes: w-10 h-10 for small, w-12 h-12 for section headers, w-16 h-16 for features
   
 - **Mobile**: 
-  - Hero text scales from text-5xl to text-3xl on mobile
-  - Feature grid transitions from 3 columns to 1 column (grid-cols-1 md:grid-cols-2 lg:grid-cols-3)
-  - Tabs convert to full-width stacked layout
-  - Side-by-side demo layouts stack vertically
-  - Reduce padding from p-8 to p-4 on small screens
-  - Sticky header collapses on scroll for more content space
+  - Hero text scales from text-7xl to text-4xl on mobile with adjusted line-height
+  - Feature grid transitions from 4 columns to 2 to 1 (grid-cols-1 md:grid-cols-2 lg:grid-cols-4)
+  - Tabs convert to 2-column then full-width stacked layout on small screens
+  - Demo layouts stack vertically with adjusted padding (p-8 to p-6 to p-4)
+  - Buttons expand to full width on mobile (w-full sm:w-auto)
+  - Responsive spacing scales (py-16 md:py-24 lg:py-32)
+  - Section spacing reduces on mobile (space-y-24 md:space-y-32 lg:space-y-40)

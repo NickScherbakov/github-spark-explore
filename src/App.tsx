@@ -6,6 +6,7 @@ import { KVStorageDemo } from '@/components/KVStorageDemo'
 import { UserInfoDisplay } from '@/components/UserInfoDisplay'
 import { CodeExamples } from '@/components/CodeExamples'
 import { Toaster } from '@/components/ui/sonner'
+import { Sparkle } from '@phosphor-icons/react'
 
 function App() {
   const [activeSection, setActiveSection] = useState<string>('')
@@ -16,31 +17,40 @@ function App() {
       
       <Hero />
       
-      <main className="max-w-7xl mx-auto px-6 py-20 md:py-24">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-32 space-y-32 md:space-y-40">
         <FeatureGrid onFeatureClick={setActiveSection} />
         
-        <section id="llm" className="mb-32">
+        <section id="llm">
           <LLMPlayground />
         </section>
         
-        <section id="kv-storage" className="mb-32">
+        <section id="kv-storage">
           <KVStorageDemo />
         </section>
         
-        <section id="user" className="mb-32">
+        <section id="user">
           <UserInfoDisplay />
         </section>
         
-        <section id="examples" className="mb-20">
+        <section id="examples">
           <CodeExamples />
         </section>
       </main>
       
-      <footer className="border-t-2 border-border/50 py-12 bg-gradient-to-br from-muted/30 to-background">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="text-muted-foreground text-sm font-medium">
-            Built with <span className="text-primary font-semibold">GitHub Spark</span> · Explore the possibilities
-          </p>
+      <footer className="border-t border-border/50 bg-gradient-to-b from-background to-muted/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="text-center space-y-4">
+            <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+              <Sparkle size={16} weight="duotone" className="text-primary" />
+              <span>Built with</span>
+              <span className="font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                GitHub Spark
+              </span>
+            </div>
+            <p className="text-xs text-muted-foreground">
+              Explore the possibilities of building without boundaries
+            </p>
+          </div>
         </div>
       </footer>
     </div>
