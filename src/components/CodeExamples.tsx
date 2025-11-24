@@ -148,40 +148,35 @@ export function CodeExamples() {
 
   return (
     <div className="scroll-mt-20">
-      <div className="text-center mb-16 space-y-4">
-        <div className="inline-flex items-center gap-3">
-          <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 shadow-lg shadow-primary/5">
-            <Code size={28} weight="duotone" className="text-primary" />
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-            Code Examples
-          </h2>
-        </div>
-        <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
+      <div className="mb-8 space-y-2">
+        <h3 className="text-2xl font-bold">
+          Code Examples
+        </h3>
+        <p className="text-muted-foreground">
           Copy-paste ready snippets to use in your Spark apps
         </p>
       </div>
 
       <div className="space-y-6">
-        <Card className="p-8 border border-border/60 bg-card/50 backdrop-blur-sm shadow-lg shadow-black/5">
+        <div className="p-6 border border-border bg-card">
           <Tabs defaultValue="llm" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 lg:grid-cols-5 mb-8 h-auto gap-2 bg-muted/40 p-2">
-              <TabsTrigger value="llm" className="font-semibold data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">LLM</TabsTrigger>
-              <TabsTrigger value="kvHook" className="font-semibold data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">KV Hook</TabsTrigger>
-              <TabsTrigger value="kvDirect" className="font-semibold data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">KV Direct</TabsTrigger>
-              <TabsTrigger value="user" className="font-semibold data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">User</TabsTrigger>
-              <TabsTrigger value="jsonMode" className="font-semibold data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">JSON Mode</TabsTrigger>
+            <TabsList className="flex flex-wrap w-full mb-6 h-auto gap-2 bg-transparent p-0 border-b border-border rounded-none">
+              <TabsTrigger value="llm" className="font-bold rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2">LLM</TabsTrigger>
+              <TabsTrigger value="kvHook" className="font-bold rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2">KV Hook</TabsTrigger>
+              <TabsTrigger value="kvDirect" className="font-bold rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2">KV Direct</TabsTrigger>
+              <TabsTrigger value="user" className="font-bold rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2">User</TabsTrigger>
+              <TabsTrigger value="jsonMode" className="font-bold rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2">JSON Mode</TabsTrigger>
             </TabsList>
 
             {Object.entries(codeExamples).map(([key, example]) => (
               <TabsContent key={key} value={key} className="space-y-4">
-                <div className="flex items-center justify-between pb-4 border-b border-border/60">
-                  <h3 className="text-xl font-bold">{example.title}</h3>
+                <div className="flex items-center justify-between pb-4 border-b border-border">
+                  <h3 className="text-lg font-bold">{example.title}</h3>
                   <Button
                     variant="outline"
                     size="sm"
                     onClick={() => copyCode(example.code, key)}
-                    className="font-semibold border-border/60"
+                    className="font-bold border-border rounded-none"
                   >
                     {copiedTab === key ? (
                       <>
@@ -190,39 +185,36 @@ export function CodeExamples() {
                       </>
                     ) : (
                       <>
-                        <Copy className="mr-2" size={16} weight="duotone" />
+                        <Copy className="mr-2" size={16} weight="bold" />
                         Copy Code
                       </>
                     )}
                   </Button>
                 </div>
 
-                <ScrollArea className="h-[440px] rounded-2xl border border-border/60 bg-secondary/30">
-                  <pre className="p-6 text-sm leading-relaxed">
-                    <code className="text-secondary-foreground font-mono">
+                <div className="h-[440px] border border-border bg-muted overflow-auto">
+                  <pre className="p-4 text-sm leading-relaxed">
+                    <code className="text-foreground font-mono">
                       {example.code}
                     </code>
                   </pre>
-                </ScrollArea>
+                </div>
               </TabsContent>
             ))}
           </Tabs>
-        </Card>
+        </div>
 
-        <Card className="p-6 bg-gradient-to-br from-primary/[0.03] to-accent/[0.02] border border-primary/20 shadow-md">
+        <div className="p-4 border border-primary/20 bg-primary/5">
           <div className="flex gap-4">
-            <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 flex-shrink-0">
-              <Info className="text-primary" size={20} weight="duotone" />
-            </div>
-            <div className="text-sm space-y-1.5">
-              <p className="font-semibold text-foreground">Ready to use</p>
-              <p className="text-muted-foreground leading-relaxed">
+            <div className="text-sm space-y-1">
+              <p className="font-bold">Ready to use</p>
+              <p className="text-muted-foreground">
                 All examples are production-ready and follow TypeScript best practices. 
                 Copy any snippet and use it directly in your Spark application.
               </p>
             </div>
           </div>
-        </Card>
+        </div>
       </div>
     </div>
   )

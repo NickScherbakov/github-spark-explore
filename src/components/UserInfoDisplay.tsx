@@ -34,99 +34,86 @@ export function UserInfoDisplay() {
 
   return (
     <div className="scroll-mt-20">
-      <div className="text-center mb-16 space-y-4">
-        <div className="inline-flex items-center gap-3">
-          <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 shadow-lg shadow-primary/5">
-            <User size={28} weight="duotone" className="text-primary" />
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-            User Context
-          </h2>
-        </div>
-        <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
+      <div className="mb-8 space-y-2">
+        <h3 className="text-2xl font-bold">
+          User Context
+        </h3>
+        <p className="text-muted-foreground">
           Access authenticated user information from GitHub
         </p>
       </div>
 
-      <div className="max-w-3xl mx-auto space-y-6">
+      <div className="space-y-6">
         {isLoading ? (
-          <Card className="p-10 border border-border/60 bg-card/50 backdrop-blur-sm shadow-lg shadow-black/5">
-            <div className="flex flex-col md:flex-row items-center gap-8">
-              <Skeleton className="w-28 h-28 rounded-full flex-shrink-0" />
+          <div className="p-6 border border-border bg-card">
+            <div className="flex flex-col md:flex-row items-center gap-6">
+              <Skeleton className="w-24 h-24 rounded-none flex-shrink-0" />
               <div className="flex-1 space-y-4 text-center md:text-left w-full">
-                <Skeleton className="h-9 w-52 mx-auto md:mx-0" />
-                <Skeleton className="h-5 w-64 mx-auto md:mx-0" />
-                <Skeleton className="h-5 w-56 mx-auto md:mx-0" />
+                <Skeleton className="h-8 w-48 mx-auto md:mx-0" />
+                <Skeleton className="h-4 w-64 mx-auto md:mx-0" />
+                <Skeleton className="h-4 w-56 mx-auto md:mx-0" />
               </div>
             </div>
-          </Card>
+          </div>
         ) : user ? (
-          <Card className="p-10 border border-border/60 bg-card/50 backdrop-blur-sm shadow-lg shadow-black/5">
-            <div className="flex flex-col md:flex-row items-center gap-8">
-              <Avatar className="w-28 h-28 border-4 border-border/60 shadow-xl flex-shrink-0 ring-2 ring-primary/10">
+          <div className="p-6 border border-border bg-card">
+            <div className="flex flex-col md:flex-row items-center gap-6">
+              <Avatar className="w-24 h-24 border border-border rounded-none">
                 <AvatarImage src={user.avatarUrl} alt={user.login} />
-                <AvatarFallback className="text-3xl bg-gradient-to-br from-primary to-accent text-primary-foreground font-bold">
+                <AvatarFallback className="text-2xl bg-muted text-foreground font-bold rounded-none">
                   {user.login.slice(0, 2).toUpperCase()}
                 </AvatarFallback>
               </Avatar>
 
               <div className="flex-1 space-y-4 text-center md:text-left">
                 <div className="flex flex-col md:flex-row items-center gap-3">
-                  <h3 className="text-3xl font-bold">{user.login}</h3>
+                  <h3 className="text-2xl font-bold">{user.login}</h3>
                   {user.isOwner && (
-                    <Badge className="bg-gradient-to-r from-primary to-accent text-white border-0 shadow-lg shadow-primary/20 px-3 py-1">
-                      <Crown size={16} className="mr-1.5" weight="fill" />
-                      Owner
-                    </Badge>
+                    <span className="bg-primary text-primary-foreground text-xs px-2 py-1 font-bold">
+                      OWNER
+                    </span>
                   )}
                 </div>
 
-                <div className="space-y-3 text-sm">
+                <div className="space-y-2 text-sm font-mono">
                   <div className="flex items-center gap-3 justify-center md:justify-start text-muted-foreground">
-                    <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-muted/60">
-                      <Envelope size={16} weight="duotone" />
-                    </div>
-                    <span className="font-medium">{user.email}</span>
+                    <Envelope size={16} />
+                    <span>{user.email}</span>
                   </div>
                   <div className="flex items-center gap-3 justify-center md:justify-start text-muted-foreground">
-                    <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-muted/60">
-                      <IdentificationCard size={16} weight="duotone" />
-                    </div>
-                    <span className="font-medium">User ID: {user.id}</span>
+                    <IdentificationCard size={16} />
+                    <span>ID: {user.id}</span>
                   </div>
                 </div>
 
                 {user.isOwner && (
-                  <div className="pt-4 border-t border-border/60">
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                  <div className="pt-4 border-t border-border">
+                    <p className="text-sm text-muted-foreground">
                       As the owner, you have full access to manage this Spark application.
                     </p>
                   </div>
                 )}
               </div>
             </div>
-          </Card>
+          </div>
         ) : (
-          <Card className="p-10 text-center border border-border/60 bg-card/50 backdrop-blur-sm shadow-lg shadow-black/5">
-            <User size={56} className="mx-auto text-muted-foreground/50 mb-4" weight="duotone" />
+          <div className="p-6 text-center border border-border bg-card">
+            <User size={40} className="mx-auto text-muted-foreground/50 mb-4" weight="duotone" />
             <p className="text-muted-foreground font-medium">Failed to load user information</p>
-          </Card>
+          </div>
         )}
 
-        <Card className="p-6 bg-gradient-to-br from-primary/[0.03] to-accent/[0.02] border border-primary/20 shadow-md">
+        <div className="p-4 border border-primary/20 bg-primary/5">
           <div className="flex gap-4">
-            <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 flex-shrink-0">
-              <Info className="text-primary" size={20} weight="duotone" />
-            </div>
-            <div className="text-sm space-y-1.5">
-              <p className="font-semibold text-foreground">How it works</p>
-              <p className="text-muted-foreground leading-relaxed">
-                This demo uses <code className="text-xs bg-background/60 px-2 py-1 rounded-md border border-border/40 font-mono text-primary">window.spark.user()</code> to fetch authenticated user data. 
+            <div className="text-sm space-y-1">
+              <p className="font-bold">How it works</p>
+              <p className="text-muted-foreground">
+                This demo uses <code className="text-xs bg-background px-1 border border-border font-mono">window.spark.user()</code> to fetch authenticated user data. 
                 Build user-specific features or restrict access based on ownership status.
               </p>
             </div>
           </div>
-        </Card>
+        </div>
       </div>
     </div>
   )

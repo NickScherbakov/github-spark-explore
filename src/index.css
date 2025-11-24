@@ -7,42 +7,44 @@
   }
   
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: var(--foreground);
+    line-height: 1.5;
   }
 }
 
 :root {
-  --background: oklch(0.99 0.002 260);
-  --foreground: oklch(0.15 0.01 260);
+  --background: #ffffff;
+  --foreground: #111111;
 
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.15 0.01 260);
+  --card: #ffffff;
+  --card-foreground: #111111;
   
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0.01 260);
+  --popover: #ffffff;
+  --popover-foreground: #111111;
 
-  --primary: oklch(0.45 0.22 262);
-  --primary-foreground: oklch(0.99 0 0);
+  --primary: #2a7ae2;
+  --primary-foreground: #ffffff;
 
-  --secondary: oklch(0.25 0.03 260);
-  --secondary-foreground: oklch(0.99 0 0);
+  --secondary: #fdfdfd;
+  --secondary-foreground: #111111;
 
-  --muted: oklch(0.97 0.003 260);
-  --muted-foreground: oklch(0.50 0.015 260);
+  --muted: #fdfdfd;
+  --muted-foreground: #828282;
 
-  --accent: oklch(0.70 0.19 290);
-  --accent-foreground: oklch(0.99 0 0);
+  --accent: #2a7ae2;
+  --accent-foreground: #ffffff;
 
-  --destructive: oklch(0.60 0.24 30);
-  --destructive-foreground: oklch(0.99 0 0);
+  --destructive: #cc0000;
+  --destructive-foreground: #ffffff;
 
-  --border: oklch(0.92 0.003 260);
-  --input: oklch(0.94 0.003 260);
-  --ring: oklch(0.45 0.22 262);
+  --border: #e8e8e8;
+  --input: #e8e8e8;
+  --ring: #2a7ae2;
 
-  --radius: 1rem;
+  --radius: 0px;
 }
 
 @theme {
@@ -66,10 +68,10 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --radius-sm: calc(var(--radius) * 0.5);
-  --radius-md: var(--radius);
-  --radius-lg: calc(var(--radius) * 1.25);
-  --radius-xl: calc(var(--radius) * 1.5);
-  --radius-2xl: calc(var(--radius) * 2);
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
   --radius-full: 9999px;
 }

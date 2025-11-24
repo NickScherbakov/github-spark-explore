@@ -43,27 +43,21 @@ export function LLMPlayground() {
 
   return (
     <div className="scroll-mt-20">
-      <div className="text-center mb-16 space-y-4">
-        <div className="inline-flex items-center gap-3">
-          <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 shadow-lg shadow-primary/5">
-            <Sparkle size={28} weight="duotone" className="text-primary" />
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-            LLM Playground
-          </h2>
-        </div>
-        <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
+      <div className="mb-8 space-y-2">
+        <h3 className="text-2xl font-bold">
+          LLM Playground
+        </h3>
+        <p className="text-muted-foreground">
           Try the built-in AI capabilities with a live example
         </p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-6 mb-6">
-        <Card className="p-8 border border-border/60 bg-card/50 backdrop-blur-sm shadow-lg shadow-black/5">
+        <div className="p-6 border border-border bg-card">
           <div className="space-y-6">
             <div>
-              <label htmlFor="prompt-input" className="text-sm font-semibold mb-3 block flex items-center gap-2">
+              <label htmlFor="prompt-input" className="text-sm font-bold mb-2 block">
                 Your Prompt
-                <Badge variant="secondary" className="text-xs font-normal">Input</Badge>
               </label>
               <Textarea
                 id="prompt-input"
@@ -71,87 +65,65 @@ export function LLMPlayground() {
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
                 onKeyDown={handleKeyDown}
-                className="min-h-[240px] resize-none text-base border-border/60 bg-background/50"
+                className="min-h-[240px] resize-none text-base border-border bg-background font-mono"
               />
-              <p className="text-xs text-muted-foreground mt-3 flex items-center gap-1.5">
-                <kbd className="px-2 py-1 text-xs bg-muted/80 border border-border/60 rounded-md font-medium">⌘</kbd>
-                <span>+</span>
-                <kbd className="px-2 py-1 text-xs bg-muted/80 border border-border/60 rounded-md font-medium">Enter</kbd>
-                <span className="ml-1">to generate</span>
+              <p className="text-xs text-muted-foreground mt-2">
+                Press <kbd className="font-bold">Cmd+Enter</kbd> to generate
               </p>
             </div>
 
             <Button
               onClick={handleGenerate}
               disabled={isLoading || !prompt.trim()}
-              className="w-full h-12 text-base font-semibold shadow-lg shadow-primary/20"
+              className="w-full h-10 text-base font-bold rounded-none"
               size="lg"
             >
-              {isLoading ? (
-                <>
-                  <div className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin mr-2" />
-                  Generating...
-                </>
-              ) : (
-                <>
-                  Generate Response
-                  <ArrowRight className="ml-2" weight="bold" />
-                </>
-              )}
+              {isLoading ? 'Generating...' : 'Generate Response'}
             </Button>
           </div>
-        </Card>
+        </div>
 
-        <Card className="p-8 border border-border/60 bg-card/50 backdrop-blur-sm shadow-lg shadow-black/5">
-          <div className="space-y-6">
+        <div className="p-6 border border-border bg-card">
+          <div className="space-y-6 h-full flex flex-col">
             <div className="flex items-center justify-between">
-              <label className="text-sm font-semibold flex items-center gap-2">
+              <label className="text-sm font-bold">
                 AI Response
-                <Badge variant="secondary" className="text-xs font-normal">Output</Badge>
               </label>
               {response && (
-                <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/5">
+                <span className="text-xs border border-border px-2 py-1 bg-muted">
                   GPT-4o Mini
-                </Badge>
+                </span>
               )}
             </div>
 
-            <ScrollArea className="h-[280px] rounded-2xl border border-border/60 bg-muted/30 p-6">
+            <div className="flex-1 border border-border bg-muted p-4 overflow-auto min-h-[240px]">
               {isLoading ? (
-                <div className="flex items-center justify-center h-full">
-                  <div className="text-center space-y-3">
-                    <div className="w-10 h-10 border-3 border-primary/30 border-t-primary rounded-full animate-spin mx-auto" />
-                    <p className="text-sm text-muted-foreground font-medium">Thinking...</p>
-                  </div>
-                </div>
+                <div className="text-sm text-muted-foreground">Thinking...</div>
               ) : response ? (
-                <div className="text-sm leading-relaxed whitespace-pre-wrap text-foreground/90">
+                <div className="text-sm leading-relaxed whitespace-pre-wrap font-mono">
                   {response}
                 </div>
               ) : (
-                <div className="flex items-center justify-center h-full text-muted-foreground text-sm">
+                <div className="text-muted-foreground text-sm italic">
                   Your AI response will appear here
                 </div>
               )}
-            </ScrollArea>
+            </div>
           </div>
-        </Card>
+        </div>
       </div>
 
-      <Card className="p-6 bg-gradient-to-br from-primary/[0.03] to-accent/[0.02] border border-primary/20 shadow-md">
+      <div className="p-4 border border-primary/20 bg-primary/5">
         <div className="flex gap-4">
-          <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 flex-shrink-0">
-            <Info className="text-primary" size={20} weight="duotone" />
-          </div>
-          <div className="text-sm space-y-1.5">
-            <p className="font-semibold text-foreground">How it works</p>
-            <p className="text-muted-foreground leading-relaxed">
-              This demo uses <code className="text-xs bg-background/60 px-2 py-1 rounded-md border border-border/40 font-mono text-primary">window.spark.llm()</code> to call AI models directly. 
+          <div className="text-sm space-y-1">
+            <p className="font-bold">How it works</p>
+            <p className="text-muted-foreground">
+              This demo uses <code className="text-xs bg-background px-1 border border-border font-mono">window.spark.llm()</code> to call AI models directly. 
               No API keys needed — it's built right into the Spark runtime.
             </p>
           </div>
         </div>
-      </Card>
+      </div>
     </div>
   )
 }
