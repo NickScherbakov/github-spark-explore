@@ -46,6 +46,11 @@ interface FeatureGridProps {
 }
 
 export function FeatureGrid({ onFeatureClick }: FeatureGridProps) {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault()
+    onFeatureClick(id)
+  }
+
   return (
     <div className="mb-16">
       <div className="mb-12 space-y-4">
@@ -62,7 +67,7 @@ export function FeatureGrid({ onFeatureClick }: FeatureGridProps) {
           <a
             key={feature.id}
             href={feature.href}
-            onClick={() => onFeatureClick(feature.id)}
+            onClick={(e) => handleClick(e, feature.id)}
             className="group block bg-card border border-border rounded-lg p-6 hover:border-primary hover:shadow-lg transition-all duration-300"
           >
             <div className="flex flex-col h-full gap-4">

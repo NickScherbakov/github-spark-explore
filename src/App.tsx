@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { Hero } from '@/components/Hero'
 import { FeatureGrid } from '@/components/FeatureGrid'
 import { LLMPlayground } from '@/components/LLMPlayground'
@@ -8,8 +9,47 @@ import { CodeExamples } from '@/components/CodeExamples'
 import { Toaster } from '@/components/ui/sonner'
 import { Sparkle } from '@phosphor-icons/react'
 
+function AnimatedSection({ 
+  children, 
+  id, 
+  className = '' 
+}: { 
+  children: React.ReactNode
+  id?: string
+  className?: string 
+}) {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: '-100px' })
+
+  return (
+    <motion.section
+      ref={ref}
+      id={id}
+      className={className}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {children}
+    </motion.section>
+  )
+}
+
 function App() {
   const [activeSection, setActiveSection] = useState<string>('')
+
+  const handleFeatureClick = (id: string) => {
+    setActiveSection(id)
+    const element = document.getElementById(id)
+    if (element) {
+      const offset = 80
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+      window.scrollTo({
+        top: elementPosition - offset,
+        behavior: 'smooth'
+      })
+    }
+  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -18,27 +58,29 @@ function App() {
       <Hero />
       
       <main className="max-w-3xl mx-auto px-6 py-12 space-y-24">
-        <FeatureGrid onFeatureClick={setActiveSection} />
+        <AnimatedSection>
+          <FeatureGrid onFeatureClick={handleFeatureClick} />
+        </AnimatedSection>
         
-        <section id="llm" className="pt-12 border-t border-border">
+        <AnimatedSection id="llm" className="pt-12 border-t border-border scroll-mt-20">
           <h2 className="text-2xl font-bold mb-6">LLM Playground</h2>
           <LLMPlayground />
-        </section>
+        </AnimatedSection>
         
-        <section id="kv-storage" className="pt-12 border-t border-border">
+        <AnimatedSection id="kv-storage" className="pt-12 border-t border-border scroll-mt-20">
           <h2 className="text-2xl font-bold mb-6">KV Storage</h2>
           <KVStorageDemo />
-        </section>
+        </AnimatedSection>
         
-        <section id="user" className="pt-12 border-t border-border">
+        <AnimatedSection id="user" className="pt-12 border-t border-border scroll-mt-20">
           <h2 className="text-2xl font-bold mb-6">User Info</h2>
           <UserInfoDisplay />
-        </section>
+        </AnimatedSection>
         
-        <section id="examples" className="pt-12 border-t border-border">
+        <AnimatedSection id="examples" className="pt-12 border-t border-border scroll-mt-20">
           <h2 className="text-2xl font-bold mb-6">Code Examples</h2>
           <CodeExamples />
-        </section>
+        </AnimatedSection>
       </main>
       
       <footer className="border-t border-border mt-20 bg-muted/30">
