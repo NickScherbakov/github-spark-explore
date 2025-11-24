@@ -21,6 +21,7 @@ export function UserInfoDisplay() {
     const fetchUser = async () => {
       try {
         const userData = await window.spark.user()
+        console.log("UserInfoDisplay: fetched user", userData);
         setUser(userData)
       } catch (error) {
         console.error('Failed to fetch user:', error)
@@ -61,7 +62,7 @@ export function UserInfoDisplay() {
               <Avatar className="w-24 h-24 border border-border rounded-none">
                 <AvatarImage src={user.avatarUrl} alt={user.login} />
                 <AvatarFallback className="text-2xl bg-muted text-foreground font-bold rounded-none">
-                  {user.login.slice(0, 2).toUpperCase()}
+                  {(user.login || "??").slice(0, 2).toUpperCase()}
                 </AvatarFallback>
               </Avatar>
 
