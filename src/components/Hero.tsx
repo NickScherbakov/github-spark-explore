@@ -1,4 +1,5 @@
 import { Sparkle, ArrowRight, Code } from '@phosphor-icons/react'
+import { ModeToggle } from "@/components/mode-toggle"
 
 export function Hero() {
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
@@ -16,6 +17,9 @@ export function Hero() {
 
   return (
     <div className="relative border-b border-border bg-gradient-to-b from-muted/30 to-background">
+      <div className="absolute top-6 right-6">
+        <ModeToggle />
+      </div>
       <div className="max-w-3xl mx-auto px-6 py-16 md:py-24">
         <div className="space-y-8">
           <div className="flex items-center gap-4">
