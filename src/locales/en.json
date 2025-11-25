@@ -1,0 +1,23 @@
+{
+  "hero": {
+    "title": "GitHub Spark",
+    "subtitle": "Build powerful web applications with AI, persistent storage, and user authentication—all without complex infrastructure.",
+    "tryDemos": "Try the Demos",
+    "viewExamples": "View Code Examples"
+  },
+  "nav": {
+    "title": "GitHub Spark"
+  },
+  "sections": {
+    "superpowers": "Built-in Superpowers",
+    "superpowersDesc": "Everything you need to build powerful applications without complex infrastructure",
+    "llm": "LLM Playground",
+    "llmDesc": "Try the built-in AI capabilities with a live example",
+    "kv": "KV Storage",
+    "kvDesc": "Persistent storage that works like React state",
+    "user": "User Info",
+    "userDesc": "Access authenticated user information from GitHub",
+    "examples": "Code Examples",
+    "examplesDesc": "Copy-paste ready code snippets to quickly integrate Spark features"
+  }
+}

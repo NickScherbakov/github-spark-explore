@@ -4,8 +4,8 @@ import { motion } from 'framer-motion'
 interface Feature {
   id: string
   icon: React.ReactNode
-  title: string
-  description: string
+  titleKey: string
+  descriptionKey: string
   href: string
 }
 
@@ -34,8 +34,8 @@ const features: Feature[] = [
   {
     id: 'examples',
     icon: <Code size={28} weight="duotone" />,
-    title: 'Code Examples',
-    description: 'Copy-paste ready code snippets to quickly integrate Spark features into your applications.',
+    titleKey: 'sections.examples',
+    descriptionKey: 'sections.examplesDesc',
     href: '#examples'
   }
 ]
@@ -45,6 +45,8 @@ interface FeatureGridProps {
 }
 
 export function FeatureGrid({ onFeatureClick }: FeatureGridProps) {
+  const { t } = useTranslation()
+  
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault()
     onFeatureClick(id)
@@ -54,10 +56,10 @@ export function FeatureGrid({ onFeatureClick }: FeatureGridProps) {
     <div className="mb-16">
       <div className="mb-12 space-y-4">
         <h2 className="text-3xl font-bold tracking-tight">
-          Built-in Superpowers
+          {t('sections.superpowers')}
         </h2>
         <p className="text-muted-foreground text-lg max-w-2xl leading-relaxed">
-          Everything you need to build powerful applications without complex infrastructure
+          {t('sections.superpowersDesc')}
         </p>
       </div>
       

@@ -1,0 +1,23 @@
+{
+  "hero": {
+    "title": "GitHub Spark",
+    "subtitle": "构建强大的Web应用程序，集成AI、持久存储和用户身份验证——无需复杂的基础设施。",
+    "tryDemos": "试用演示",
+    "viewExamples": "查看代码示例"
+  },
+  "nav": {
+    "title": "GitHub Spark"
+  },
+  "sections": {
+    "superpowers": "内置超能力",
+    "superpowersDesc": "无需复杂基础设施即可构建强大应用程序所需的一切",
+    "llm": "LLM 游乐场",
+    "llmDesc": "通过实时示例尝试内置的AI功能",
+    "kv": "KV 存储",
+    "kvDesc": "像React状态一样工作的持久存储",
+    "user": "用户信息",
+    "userDesc": "访问经过身份验证的GitHub用户信息",
+    "examples": "代码示例",
+    "examplesDesc": "复制粘贴现成的代码片段以快速集成Spark功能"
+  }
+}

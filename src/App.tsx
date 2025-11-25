@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { Header } from '@/components/Header'
 import { Hero } from '@/components/Hero'
 import { FeatureGrid } from '@/components/FeatureGrid'
 import { LLMPlayground } from '@/components/LLMPlayground'
@@ -8,6 +9,7 @@ import { UserInfoDisplay } from '@/components/UserInfoDisplay'
 import { CodeExamples } from '@/components/CodeExamples'
 import { Toaster } from '@/components/ui/sonner'
 import { Sparkle } from '@phosphor-icons/react'
+import { useTranslation } from '@/lib/i18n-context'
 
 function AnimatedSection({ 
   children, 
@@ -36,6 +38,7 @@ function AnimatedSection({
 }
 
 function App() {
+  const { t } = useTranslation()
   const [activeSection, setActiveSection] = useState<string>('')
 
   const handleFeatureClick = (id: string) => {
@@ -52,42 +55,57 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background font-sans antialiased">
       <Toaster />
+      <Header />
       
       <Hero />
       
-      <main className="max-w-3xl mx-auto px-6 py-12 space-y-24">
+      <main className="max-w-5xl mx-auto px-6 py-12 space-y-24">
         <AnimatedSection>
           <FeatureGrid onFeatureClick={handleFeatureClick} />
         </AnimatedSection>
         
         <AnimatedSection id="llm" className="pt-12 border-t border-border scroll-mt-20">
-          <h2 className="text-2xl font-bold mb-6">LLM Playground</h2>
+          <div className="mb-8 space-y-2">
+            <h2 className="text-3xl font-bold">{t('sections.llm')}</h2>
+            <p className="text-muted-foreground text-lg">{t('sections.llmDesc')}</p>
+          </div>
           <LLMPlayground />
         </AnimatedSection>
         
         <AnimatedSection id="kv-storage" className="pt-12 border-t border-border scroll-mt-20">
-          <h2 className="text-2xl font-bold mb-6">KV Storage</h2>
+          <div className="mb-8 space-y-2">
+            <h2 className="text-3xl font-bold">{t('sections.kv')}</h2>
+            <p className="text-muted-foreground text-lg">{t('sections.kvDesc')}</p>
+          </div>
           <KVStorageDemo />
         </AnimatedSection>
         
         <AnimatedSection id="user" className="pt-12 border-t border-border scroll-mt-20">
-          <h2 className="text-2xl font-bold mb-6">User Info</h2>
+          <div className="mb-8 space-y-2">
+            <h2 className="text-3xl font-bold">{t('sections.user')}</h2>
+            <p className="text-muted-foreground text-lg">{t('sections.userDesc')}</p>
+          </div>
           <UserInfoDisplay />
         </AnimatedSection>
         
         <AnimatedSection id="examples" className="pt-12 border-t border-border scroll-mt-20">
-          <h2 className="text-2xl font-bold mb-6">Code Examples</h2>
+          <div className="mb-8 space-y-2">
+            <h2 className="text-3xl font-bold">{t('sections.examples')}</h2>
+            <p className="text-muted-foreground text-lg">{t('sections.examplesDesc')}</p>
+          </div>
           <CodeExamples />
         </AnimatedSection>
       </main>
       
       <footer className="border-t border-border mt-20 bg-muted/30">
-        <div className="max-w-3xl mx-auto px-6 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+        <div className="max-w-5xl mx-auto px-6 py-12">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
-              <Sparkle size={16} weight="fill" className="text-primary" />
+              <div className="flex items-center justify-center w-8 h-8 bg-muted text-muted-foreground rounded-md">
+                <Sparkle size={16} weight="fill" />
+              </div>
               <span>Built with <strong className="text-foreground">GitHub Spark</strong></span>
             </div>
             <p>

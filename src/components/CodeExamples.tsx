@@ -148,15 +148,6 @@ export function CodeExamples() {
 
   return (
     <div className="scroll-mt-20">
-      <div className="mb-8 space-y-2">
-        <h3 className="text-2xl font-bold">
-          Code Examples
-        </h3>
-        <p className="text-muted-foreground">
-          Copy-paste ready snippets to use in your Spark apps
-        </p>
-      </div>
-
       <div className="space-y-6">
         <div className="p-6 border border-border bg-card rounded-lg shadow-sm">
           <Tabs defaultValue="llm" className="w-full">

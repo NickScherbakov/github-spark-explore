@@ -34,15 +34,6 @@ export function UserInfoDisplay() {
 
   return (
     <div className="scroll-mt-20">
-      <div className="mb-8 space-y-2">
-        <h3 className="text-2xl font-bold">
-          User Context
-        </h3>
-        <p className="text-muted-foreground">
-          Access authenticated user information from GitHub
-        </p>
-      </div>
-
       <div className="space-y-6">
         {isLoading ? (
           <div className="p-6 border border-border bg-card rounded-lg shadow-sm">
