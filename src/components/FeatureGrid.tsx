@@ -1,5 +1,4 @@
 import { Sparkle, Database, User, Code, ArrowRight } from '@phosphor-icons/react'
-import { Card } from '@/components/ui/card'
 import { motion } from 'framer-motion'
 
 interface Feature {
@@ -15,21 +14,21 @@ const features: Feature[] = [
     id: 'llm',
     icon: <Sparkle size={28} weight="duotone" />,
     title: 'LLM Integration',
-    description: 'Call AI models directly from your app with simple async functions. No API keys or complex setup required.',
+    description: 'Built-in AI capabilities with prompt templates and structured outputs for intelligent features.',
     href: '#llm'
   },
   {
     id: 'kv-storage',
     icon: <Database size={28} weight="duotone" />,
     title: 'KV Storage',
-    description: 'Persist data effortlessly with reactive key-value storage. Works like React state but survives refreshes.',
+    description: 'Persist data seamlessly with a simple key-value store that works across sessions.',
     href: '#kv-storage'
   },
   {
     id: 'user',
     icon: <User size={28} weight="duotone" />,
     title: 'User Context',
-    description: 'Access authenticated user information including GitHub profile, avatar, and ownership status.',
+    description: 'Access user information including GitHub profile, avatar, and ownership status.',
     href: '#user'
   },
   {
@@ -62,35 +61,38 @@ export function FeatureGrid({ onFeatureClick }: FeatureGridProps) {
         </p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {features.map((feature) => (
-          <a
+      <div className="grid md:grid-cols-2 gap-6">
+        {features.map((feature, index) => (
+          <motion.a
             key={feature.id}
             href={feature.href}
             onClick={(e) => handleClick(e, feature.id)}
-            className="group block bg-card border border-border rounded-lg p-6 hover:border-primary hover:shadow-lg transition-all duration-300"
+            className="group relative block p-8 bg-card border border-border rounded-xl hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1, duration: 0.5 }}
+            whileHover={{ y: -4 }}
           >
-            <div className="flex flex-col h-full gap-4">
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 text-primary rounded-lg group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                 {feature.icon}
               </div>
               
-              <div className="flex-1 space-y-2">
-                <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
+              <div className="flex-1 min-w-0">
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
                   {feature.title}
                 </h3>
-                
                 <p className="text-muted-foreground leading-relaxed">
                   {feature.description}
                 </p>
               </div>
-              
-              <div className="flex items-center text-sm font-semibold text-primary">
-                Learn more
-                <ArrowRight size={16} weight="bold" className="ml-1 group-hover:translate-x-1 transition-transform" />
-              </div>
             </div>
-          </a>
+            
+            <div className="mt-6 flex items-center gap-2 text-sm font-medium text-primary group-hover:gap-3 transition-all">
+              <span>Learn more</span>
+              <ArrowRight size={16} weight="bold" />
+            </div>
+          </motion.a>
         ))}
       </div>
     </div>
