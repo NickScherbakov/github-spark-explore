@@ -17,22 +17,19 @@ export function Hero() {
 
   return (
     <div className="relative border-b border-border bg-gradient-to-b from-muted/30 to-background">
-      <div className="absolute top-6 right-6 z-50">
-        <ModeToggle />
-      </div>
-      <div className="max-w-3xl mx-auto px-6 py-16 md:py-24">
+      <div className="max-w-5xl mx-auto px-6 py-16 md:py-24">
         <div className="space-y-8">
           <div className="flex items-center gap-4">
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-primary text-primary-foreground rounded-lg shadow-sm">
-              <Sparkle size={24} weight="fill" />
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-primary text-primary-foreground rounded-2xl shadow-sm">
+              <Sparkle size={32} weight="fill" />
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground">
               GitHub Spark
             </h1>
           </div>
           
-          <div className="space-y-6">
-            <p className="text-xl text-muted-foreground leading-relaxed">
+          <div className="space-y-6 max-w-2xl">
+            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
               Build powerful web applications with AI, persistent storage, and user authentication—all without complex infrastructure.
             </p>
             
