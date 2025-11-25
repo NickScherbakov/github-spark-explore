@@ -1,6 +1,6 @@
 import { Sparkle, Database, User, Code, ArrowRight } from '@phosphor-icons/react'
 import { Card } from '@/components/ui/card'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from '@/lib/i18n-context'
 
 interface Feature {
   id: string

@@ -1,6 +1,6 @@
 import { Sparkle, ArrowRight, Code } from '@phosphor-icons/react'
 import { Button } from "@/components/ui/button"
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from '@/lib/i18n-context'
 
 export function Hero() {
   const { t } = useTranslation()

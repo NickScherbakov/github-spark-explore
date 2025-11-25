@@ -6,15 +6,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { useTranslation } from "react-i18next"
-import { useEffect } from "react"
+import { useTranslation } from "@/lib/i18n-context"
 
 export function LanguageToggle() {
   const { i18n } = useTranslation()
-
-  useEffect(() => {
-    document.dir = i18n.language === 'ar' ? 'rtl' : 'ltr'
-  }, [i18n.language])
 
   return (
     <DropdownMenu>

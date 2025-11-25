@@ -1,7 +1,7 @@
 import { Sparkle } from '@phosphor-icons/react'
 import { ModeToggle } from "@/components/mode-toggle"
 import { LanguageToggle } from "@/components/language-toggle"
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from '@/lib/i18n-context'
 
 export function Header() {
   const { t } = useTranslation()

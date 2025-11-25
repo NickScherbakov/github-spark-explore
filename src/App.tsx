@@ -9,6 +9,7 @@ import { UserInfoDisplay } from '@/components/UserInfoDisplay'
 import { CodeExamples } from '@/components/CodeExamples'
 import { Toaster } from '@/components/ui/sonner'
 import { Sparkle } from '@phosphor-icons/react'
+import { useTranslation } from '@/lib/i18n-context'
 
 function AnimatedSection({ 
   children, 
@@ -35,8 +36,6 @@ function AnimatedSection({
     </motion.section>
   )
 }
-
-import { useTranslation } from 'react-i18next'
 
 function App() {
   const { t } = useTranslation()
