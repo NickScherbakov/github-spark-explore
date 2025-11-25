@@ -68,28 +68,30 @@ export function FeatureGrid({ onFeatureClick }: FeatureGridProps) {
             key={feature.id}
             href={feature.href}
             onClick={(e) => handleClick(e, feature.id)}
-            className="group block bg-card border border-border rounded-lg p-6 hover:border-primary hover:shadow-lg transition-all duration-300"
+            className="group block h-full"
           >
-            <div className="flex flex-col h-full gap-4">
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 text-primary rounded-lg group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                {feature.icon}
-              </div>
-              
-              <div className="flex-1 space-y-2">
-                <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
-                  {feature.title}
-                </h3>
+            <Card className="h-full p-6 border-border/60 bg-card/50 hover:bg-card hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+              <div className="flex flex-col h-full gap-6">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 text-primary rounded-xl group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                  {feature.icon}
+                </div>
                 
-                <p className="text-muted-foreground leading-relaxed">
-                  {feature.description}
-                </p>
+                <div className="flex-1 space-y-3">
+                  <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
+                    {feature.title}
+                  </h3>
+                  
+                  <p className="text-muted-foreground leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+                
+                <div className="flex items-center text-sm font-bold text-primary opacity-80 group-hover:opacity-100 transition-opacity">
+                  Learn more
+                  <ArrowRight size={16} weight="bold" className="ml-2 group-hover:translate-x-1 transition-transform" />
+                </div>
               </div>
-              
-              <div className="flex items-center text-sm font-semibold text-primary">
-                Learn more
-                <ArrowRight size={16} weight="bold" className="ml-1 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </div>
+            </Card>
           </a>
         ))}
       </div>

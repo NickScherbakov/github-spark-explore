@@ -65,22 +65,34 @@ function App() {
         </AnimatedSection>
         
         <AnimatedSection id="llm" className="pt-12 border-t border-border scroll-mt-20">
-          <h2 className="text-3xl font-bold mb-8">LLM Playground</h2>
+          <div className="mb-8 space-y-2">
+            <h2 className="text-3xl font-bold">LLM Playground</h2>
+            <p className="text-muted-foreground text-lg">Try the built-in AI capabilities with a live example</p>
+          </div>
           <LLMPlayground />
         </AnimatedSection>
         
         <AnimatedSection id="kv-storage" className="pt-12 border-t border-border scroll-mt-20">
-          <h2 className="text-3xl font-bold mb-8">KV Storage</h2>
+          <div className="mb-8 space-y-2">
+            <h2 className="text-3xl font-bold">KV Storage</h2>
+            <p className="text-muted-foreground text-lg">Persistent storage that works like React state</p>
+          </div>
           <KVStorageDemo />
         </AnimatedSection>
         
         <AnimatedSection id="user" className="pt-12 border-t border-border scroll-mt-20">
-          <h2 className="text-3xl font-bold mb-8">User Info</h2>
+          <div className="mb-8 space-y-2">
+            <h2 className="text-3xl font-bold">User Info</h2>
+            <p className="text-muted-foreground text-lg">Access authenticated user information from GitHub</p>
+          </div>
           <UserInfoDisplay />
         </AnimatedSection>
         
         <AnimatedSection id="examples" className="pt-12 border-t border-border scroll-mt-20">
-          <h2 className="text-3xl font-bold mb-8">Code Examples</h2>
+          <div className="mb-8 space-y-2">
+            <h2 className="text-3xl font-bold">Code Examples</h2>
+            <p className="text-muted-foreground text-lg">Copy-paste ready code snippets to quickly integrate Spark features</p>
+          </div>
           <CodeExamples />
         </AnimatedSection>
       </main>

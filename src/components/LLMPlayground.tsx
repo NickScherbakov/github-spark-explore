@@ -43,15 +43,6 @@ export function LLMPlayground() {
 
   return (
     <div className="scroll-mt-20">
-      <div className="mb-8 space-y-2">
-        <h3 className="text-2xl font-bold">
-          LLM Playground
-        </h3>
-        <p className="text-muted-foreground">
-          Try the built-in AI capabilities with a live example
-        </p>
-      </div>
-
       <div className="grid md:grid-cols-2 gap-6 mb-6">
         <div className="p-6 border border-border bg-card rounded-lg shadow-sm">
           <div className="space-y-6">
