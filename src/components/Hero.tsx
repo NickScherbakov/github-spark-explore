@@ -17,7 +17,7 @@ export function Hero() {
 
   return (
     <div className="relative border-b border-border bg-gradient-to-b from-muted/30 to-background">
-      <div className="absolute top-6 right-6">
+      <div className="absolute top-6 right-6 z-50">
         <ModeToggle />
       </div>
       <div className="max-w-3xl mx-auto px-6 py-16 md:py-24">
