@@ -2,6 +2,7 @@ import { Sparkle } from '@phosphor-icons/react'
 import { ModeToggle } from "@/components/mode-toggle"
 import { LanguageToggle } from "@/components/language-toggle"
 import { useTranslation } from '@/lib/i18n-context'
+import { Separator } from "@/components/ui/separator"
 
 export function Header() {
   const { t } = useTranslation()
@@ -15,8 +16,9 @@ export function Header() {
           </div>
           <span>{t('nav.title')}</span>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           <LanguageToggle />
+          <Separator orientation="vertical" className="h-6" />
           <ModeToggle />
         </div>
       </div>
