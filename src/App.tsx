@@ -36,7 +36,10 @@ function AnimatedSection({
   )
 }
 
+import { useTranslation } from 'react-i18next'
+
 function App() {
+  const { t } = useTranslation()
   const [activeSection, setActiveSection] = useState<string>('')
 
   const handleFeatureClick = (id: string) => {
@@ -66,32 +69,32 @@ function App() {
         
         <AnimatedSection id="llm" className="pt-12 border-t border-border scroll-mt-20">
           <div className="mb-8 space-y-2">
-            <h2 className="text-3xl font-bold">LLM Playground</h2>
-            <p className="text-muted-foreground text-lg">Try the built-in AI capabilities with a live example</p>
+            <h2 className="text-3xl font-bold">{t('sections.llm')}</h2>
+            <p className="text-muted-foreground text-lg">{t('sections.llmDesc')}</p>
           </div>
           <LLMPlayground />
         </AnimatedSection>
         
         <AnimatedSection id="kv-storage" className="pt-12 border-t border-border scroll-mt-20">
           <div className="mb-8 space-y-2">
-            <h2 className="text-3xl font-bold">KV Storage</h2>
-            <p className="text-muted-foreground text-lg">Persistent storage that works like React state</p>
+            <h2 className="text-3xl font-bold">{t('sections.kv')}</h2>
+            <p className="text-muted-foreground text-lg">{t('sections.kvDesc')}</p>
           </div>
           <KVStorageDemo />
         </AnimatedSection>
         
         <AnimatedSection id="user" className="pt-12 border-t border-border scroll-mt-20">
           <div className="mb-8 space-y-2">
-            <h2 className="text-3xl font-bold">User Info</h2>
-            <p className="text-muted-foreground text-lg">Access authenticated user information from GitHub</p>
+            <h2 className="text-3xl font-bold">{t('sections.user')}</h2>
+            <p className="text-muted-foreground text-lg">{t('sections.userDesc')}</p>
           </div>
           <UserInfoDisplay />
         </AnimatedSection>
         
         <AnimatedSection id="examples" className="pt-12 border-t border-border scroll-mt-20">
           <div className="mb-8 space-y-2">
-            <h2 className="text-3xl font-bold">Code Examples</h2>
-            <p className="text-muted-foreground text-lg">Copy-paste ready code snippets to quickly integrate Spark features</p>
+            <h2 className="text-3xl font-bold">{t('sections.examples')}</h2>
+            <p className="text-muted-foreground text-lg">{t('sections.examplesDesc')}</p>
           </div>
           <CodeExamples />
         </AnimatedSection>

@@ -1,12 +1,12 @@
 import { Sparkle, Database, User, Code, ArrowRight } from '@phosphor-icons/react'
 import { Card } from '@/components/ui/card'
-import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 interface Feature {
   id: string
   icon: React.ReactNode
-  title: string
-  description: string
+  titleKey: string
+  descriptionKey: string
   href: string
 }
 
@@ -14,29 +14,29 @@ const features: Feature[] = [
   {
     id: 'llm',
     icon: <Sparkle size={28} weight="duotone" />,
-    title: 'LLM Integration',
-    description: 'Call AI models directly from your app with simple async functions. No API keys or complex setup required.',
+    titleKey: 'sections.llm',
+    descriptionKey: 'sections.llmDesc',
     href: '#llm'
   },
   {
     id: 'kv-storage',
     icon: <Database size={28} weight="duotone" />,
-    title: 'KV Storage',
-    description: 'Persist data effortlessly with reactive key-value storage. Works like React state but survives refreshes.',
+    titleKey: 'sections.kv',
+    descriptionKey: 'sections.kvDesc',
     href: '#kv-storage'
   },
   {
     id: 'user',
     icon: <User size={28} weight="duotone" />,
-    title: 'User Context',
-    description: 'Access authenticated user information including GitHub profile, avatar, and ownership status.',
+    titleKey: 'sections.user',
+    descriptionKey: 'sections.userDesc',
     href: '#user'
   },
   {
     id: 'examples',
     icon: <Code size={28} weight="duotone" />,
-    title: 'Code Examples',
-    description: 'Copy-paste ready code snippets to quickly integrate Spark features into your applications.',
+    titleKey: 'sections.examples',
+    descriptionKey: 'sections.examplesDesc',
     href: '#examples'
   }
 ]
@@ -46,6 +46,8 @@ interface FeatureGridProps {
 }
 
 export function FeatureGrid({ onFeatureClick }: FeatureGridProps) {
+  const { t } = useTranslation()
+  
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault()
     onFeatureClick(id)
@@ -55,10 +57,10 @@ export function FeatureGrid({ onFeatureClick }: FeatureGridProps) {
     <div className="mb-16">
       <div className="mb-12 space-y-4">
         <h2 className="text-3xl font-bold tracking-tight">
-          Built-in Superpowers
+          {t('sections.superpowers')}
         </h2>
         <p className="text-muted-foreground text-lg max-w-2xl leading-relaxed">
-          Everything you need to build powerful applications without complex infrastructure
+          {t('sections.superpowersDesc')}
         </p>
       </div>
       
@@ -78,17 +80,17 @@ export function FeatureGrid({ onFeatureClick }: FeatureGridProps) {
                 
                 <div className="flex-1 space-y-3">
                   <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
-                    {feature.title}
+                    {t(feature.titleKey)}
                   </h3>
                   
                   <p className="text-muted-foreground leading-relaxed">
-                    {feature.description}
+                    {t(feature.descriptionKey)}
                   </p>
                 </div>
                 
                 <div className="flex items-center text-sm font-bold text-primary opacity-80 group-hover:opacity-100 transition-opacity">
                   Learn more
-                  <ArrowRight size={16} weight="bold" className="ml-2 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight size={16} weight="bold" className="ml-2 group-hover:translate-x-1 transition-transform rtl:rotate-180 rtl:group-hover:-translate-x-1" />
                 </div>
               </div>
             </Card>

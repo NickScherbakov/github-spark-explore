@@ -7,6 +7,7 @@ import { ErrorFallback } from './ErrorFallback.tsx'
 import { ThemeProvider } from "@/components/theme-provider"
 
 import "./main.css"
+import "./i18n"
 
 createRoot(document.getElementById('root')!).render(
   <ErrorBoundary FallbackComponent={ErrorFallback}>

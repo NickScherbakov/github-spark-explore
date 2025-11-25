@@ -1,7 +1,10 @@
 import { Sparkle, ArrowRight, Code } from '@phosphor-icons/react'
 import { Button } from "@/components/ui/button"
+import { useTranslation } from 'react-i18next'
 
 export function Hero() {
+  const { t } = useTranslation()
+  
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault()
     const element = document.getElementById(targetId)
@@ -25,13 +28,13 @@ export function Hero() {
               <Sparkle size={32} weight="fill" />
             </div>
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground">
-              GitHub Spark
+              {t('hero.title')}
             </h1>
           </div>
           
           <div className="space-y-8 max-w-2xl animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
             <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-              Build powerful web applications with AI, persistent storage, and user authentication—all without complex infrastructure.
+              {t('hero.subtitle')}
             </p>
             
             <div className="flex flex-wrap gap-4">
@@ -40,8 +43,8 @@ export function Hero() {
                   href="#llm"
                   onClick={(e) => handleScroll(e, 'llm')}
                 >
-                  Try the Demos
-                  <ArrowRight className="ml-2 h-5 w-5" weight="bold" />
+                  {t('hero.tryDemos')}
+                  <ArrowRight className="ml-2 h-5 w-5 rtl:rotate-180" weight="bold" />
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg" className="h-12 px-6 text-base font-bold bg-background/50 backdrop-blur-sm">
@@ -49,7 +52,7 @@ export function Hero() {
                   href="#examples"
                   onClick={(e) => handleScroll(e, 'examples')}
                 >
-                  View Code Examples
+                  {t('hero.viewExamples')}
                   <Code className="ml-2 h-5 w-5" weight="bold" />
                 </a>
               </Button>
