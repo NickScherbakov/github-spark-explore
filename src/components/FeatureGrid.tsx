@@ -1,11 +1,12 @@
 import { Sparkle, Database, User, Code, ArrowRight } from '@phosphor-icons/react'
 import { motion } from 'framer-motion'
+import { useTranslation } from '@/lib/i18n-context'
 
 interface Feature {
   id: string
   icon: React.ReactNode
-  titleKey: string
-  descriptionKey: string
+  title: string
+  description: string
   href: string
 }
 
@@ -34,8 +35,8 @@ const features: Feature[] = [
   {
     id: 'examples',
     icon: <Code size={28} weight="duotone" />,
-    titleKey: 'sections.examples',
-    descriptionKey: 'sections.examplesDesc',
+    title: 'Code Examples',
+    description: 'Copy-paste ready code snippets to quickly integrate Spark features.',
     href: '#examples'
   }
 ]
